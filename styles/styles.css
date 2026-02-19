@@ -934,7 +934,7 @@ body.german-mode .sources {
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
-    font-family: 'IBMPlexMono', monospace;
+    font-family: 'InterDisplay', monospace;
     font-style: normal;
     font-weight: regular;
     flex-shrink: 0;

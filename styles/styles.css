@@ -1,0 +1,1417 @@
+:root { /* ---------------- root ---------------- */           
+    --black: #0c0c0e; /* background */
+    --white: #f9f9f6; /* text */
+    --grey: #9B9BA0; /* for ui elements */
+    --blue: #698fff; /* text selection */
+    --green: #00ee94; /* highlighted words */
+    --red: #ff3b5d; /* highlighted words */
+    --header-1: 2rem; /* font size headline */
+    --header-2: 1.5rem; /* font size subline */
+    --buttons: 1.2rem; /* font size buttons */
+    --scrolling-text: 1rem; /* 1rem = 16px, standard browser font size */
+    --figcaption: 0.8rem; /* font size figcaption */
+    --base-font-size: 16px; /* Standardwert für die Schriftgröße */
+}
+
+/* ---------------- cursor ---------------- */
+
+* {
+    cursor: url("../assets/cursor/"), auto;
+}
+
+
+/* ---------------- html & body ---------------- */
+
+
+html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    min-height: 100%;
+    user-select: text;
+    background-color: var(--white);
+    overflow-y: auto;   /* vertical scrolling */
+    overflow-x: hidden; /* no horizontal scrolling */
+    max-width: none;
+    scroll-behavior: auto;
+    font-size: var(--base-font-size, 1rem);
+}
+
+/* ---------------- img ---------------- */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 6px auto;
+    user-select: none;
+}
+
+/* ---------------- video iframe ---------------- */
+
+video, iframe {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* ---------------- scrollbar ---------------- */  
+
+::-webkit-scrollbar-track {
+    margin: 20px 0px;
+    --background-scrollbar: transparent;    
+}
+
+::-webkit-scrollbar { 
+    width: 0px;
+    --background-scrollbar: transparent;    
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {    
+    --background-scrollbar: transparent;    
+}
+
+/* ---------------- selected words ---------------- */
+
+::selection { 
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* ---------------- links ---------------- */
+
+a { 
+    text-decoration: none;
+    color: var(--white);
+    user-select: none;
+}
+
+/* -------- font: Inter Display -------- */
+
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 100; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Thin.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 100; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-ThinItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 200; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-ExtraLight.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 200; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-ExtraLightItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Light.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 300; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-LightItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Regular.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Italic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Medium.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-MediumItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-SemiBoldItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Bold.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-BoldItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 800; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-ExtraBold.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 800; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-ExtraBoldItalic.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: normal; font-weight: 900; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-Black.woff2") format("woff2"); }
+@font-face { font-family: "InterDisplay"; font-style: italic; font-weight: 900; font-display: swap; src: url("../assets/fonts/inter/InterDisplay-BlackItalic.woff2") format("woff2"); }
+
+/* -------- font: source-code-sans -------- */
+
+@font-face { font-family: 'source-code-sans'; src: url('../assets/fonts/source-code/WOFF2/OTF/SourceCodePro-Regular.otf.woff2') format('woff2'); }
+@font-face { font-family: 'source-code-sans-bold'; src: url('../assets/fonts/source-code/WOFF2/OTF/SourceCodePro-Bold.otf.woff2') format('woff2'); }
+@font-face { font-family: 'source-code-sans-italic'; src: url('../assets/fonts/source-code/WOFF2/OTF/SourceCodePro-It.otf.woff2') format('woff2'); }
+
+/* -------- font: IBMPlexMono -------- */
+
+@font-face { font-family: 'IBMPlexMono'; font-style: normal; src: url('../assets/fonts/IBMPlexMono/IBMPlexMono.woff2') format('woff2'); }
+
+/* ---------------- nav ---------------- */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    background: linear-gradient(
+        to bottom,
+        var(--white) 0%,   /* Weiß oben */
+        var(--white) 50%,  /* Etwas weniger opak */
+        rgba(255, 255, 255, 0) 100%    /* Vollständig transparent am Ende */
+    );
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 0px 40px 80px;
+    height: 180px;
+}
+
+/* Nav buttons container */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 80px;
+    top: 15px;
+}
+
+/* Common styles for nav buttons */
+#index-btn,
+#glossary-btn,
+#sources-btn,
+#download-btn {
+    padding: 0px 10px 0px 10px;
+    line-height: 0rem;
+    background-color: var(--black);
+    color: var(--green);
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    font-weight: regular;
+    user-select: none;
+    transition: transform 0.2s ease;
+    font-family: 'IBMPlexMono', monospace;
+    border-radius: 6px;
+}
+
+#index-btn:hover,
+#glossary-btn:hover,
+#sources-btn:hover,
+#download-btn:hover {
+    transform: scale(1.05);
+}
+
+#index-btn:focus,
+#glossary-btn:focus,
+#sources-btn:focus,
+#download-btn:focus {
+    outline: none;
+}
+
+/* Language toggle button */
+#lang-btn {
+    padding: 0px 10px 0px 10px;
+    line-height: 0rem;
+    background-color: var(--black);
+    color: var(--green);
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    font-weight: regular;
+    user-select: none;
+    transition: transform 0.2s ease;
+    font-family: 'IBMPlexMono', monospace;
+    border-radius: 6px;
+}
+
+#lang-btn:hover {
+    transform: scale(1.05);
+}
+
+/* VS Code Sidebar Styles */
+#index-sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: var(--black);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 30px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Show scrollbar for index sidebar */
+#index-sidebar {
+    -ms-overflow-style: auto;
+}
+
+#index-sidebar::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+#index-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#index-sidebar::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 3px;
+}
+
+#index-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+}
+
+#index-sidebar.open {
+    transform: translateX(0);
+}
+
+/* VS Code Sidebar Styles for Glossary */
+#glossary-sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: var(--black);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 30px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Show scrollbar for glossary sidebar */
+#glossary-sidebar {
+    -ms-overflow-style: auto;
+    scrollbar-width: auto;
+}
+
+#glossary-sidebar::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+#glossary-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#glossary-sidebar::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 3px;
+}
+
+#glossary-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+}
+
+#glossary-sidebar.open {
+    transform: translateX(0);
+}
+
+/* Sidebar content */
+#glossary-sidebar .sidebar-content {
+    padding: 8px 0;
+}
+
+/* Section (h2) in glossary */
+#glossary-sidebar .h2 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    color: var(--white);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#glossary-sidebar .h2 p {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Subsection (h3) in glossary */
+#glossary-sidebar .h3 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 16px 8px 32px;
+    color: var(--grey);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#glossary-sidebar .h3 p {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Active/selected item in glossary */
+#glossary-sidebar .h2:active,
+#glossary-sidebar .h3:active {
+    background-color: var(--green);
+}
+
+/* VS Code Sidebar Styles for Sources */
+#sources-sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: var(--black);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 30px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Show scrollbar for sources sidebar */
+#sources-sidebar {
+    -ms-overflow-style: auto;
+}
+
+#sources-sidebar::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+#sources-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sources-sidebar::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 3px;
+}
+
+#sources-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+}
+
+#sources-sidebar.open {
+    transform: translateX(0);
+}
+
+/* Sidebar content */
+#sources-sidebar .sidebar-content {
+    padding: 8px 0;
+}
+
+/* Source item in sources sidebar */
+#sources-sidebar .source-item {
+    padding: 10px 16px;
+    color: var(--white);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #333;
+}
+
+#sources-sidebar .source-item:hover {
+    background-color: #333;
+}
+
+#sources-sidebar .source-item p {
+    margin: 0;
+}
+
+/* Section (h2) in sources */
+#sources-sidebar .h2 {
+    display: flex;
+    padding: 10px 16px;
+    color: var(--white);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#sources-sidebar .h2 p {
+    margin: 0;
+}
+
+/* Subsection (h3) in sources */
+#sources-sidebar .h3 {
+    display: flex;
+    padding: 8px 16px 8px 32px;
+    color: var(--grey);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#sources-sidebar .h3 p {
+    margin: 0;
+}
+
+/* Active/selected item in sources */
+#sources-sidebar .h2:active,
+#sources-sidebar .h3:active {
+    background-color: var(--green);
+}
+
+/* Glossary reference numbers in text */
+.glossary-ref,
+.glossary-ref-eng {
+    color: var(--green);
+    font-family: 'IBMPlexMono', monospace;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.glossary-ref:hover,
+.glossary-ref-eng:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Push content when sidebar opens */
+body.sidebar-open .line-numbers,
+body.sidebar-open .content-wrapper,
+body.sidebar-open main {
+    transform: translateX(280px);
+    transition: transform 0.25s ease;
+}
+
+html.sidebar-open {
+    overflow: auto;
+}
+
+/* Ensure sidebars are scrollable */
+#index-sidebar,
+#glossary-sidebar,
+#sources-sidebar {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Sidebar content */
+#index-sidebar .sidebar-content {
+    padding: 8px 0;
+}
+
+/* Section (h2) */
+#index-sidebar .h2 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    color: var(--white);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#index-sidebar .h2 p {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Subsection (h3) */
+#index-sidebar .h3 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 16px 8px 32px;
+    color: var(--grey);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#index-sidebar .h3 p {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Active/selected item */
+#index-sidebar .h2:active,
+#index-sidebar .h3:active {
+    background-color: var(--green);
+}
+
+/* Overlay when sidebar is open */
+#sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+}
+
+#sidebar-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown-Menü-Stile - Hidden (replaced by VS Code sidebar) */
+#index-dropdown {
+    display: none;
+}
+
+/* Sidebar overlay */
+
+
+/* ---------------- reading area ---------------- */
+
+#reading-area {
+    font-size: var(--base-font-size);
+    font-variation-settings: "opsz" 16;
+}
+
+#reading-area {
+  --base-font-size: 16px;
+}
+
+#reading-area p,
+#reading-area .scrolling-text,
+#reading-area .scrolling-text-italic,
+#reading-area .h2,
+#reading-area .h2-eng,
+#reading-area .h3,
+#reading-area .h3-eng,
+#reading-area .h4 {
+  font-size: var(--base-font-size);
+  font-weight: 400;
+}
+
+#reading-area .h1,
+#reading-area .h1-eng {
+  font-size: var(--base-font-size);
+  font-weight: 900;
+}
+
+#reading-area {
+  --base-font-size: 16px;
+  --base-line-height: 1.6;
+
+  font-size: var(--base-font-size);
+  line-height: calc(var(--base-font-size) * var(--base-line-height));
+}
+
+.h1, .h1-eng { 
+    font-weight: 900;
+    line-height: 1.1; 
+}
+.h2, .h2-eng { line-height: 1.2; }
+.h3, .h3-eng { line-height: 1.3; }
+.h4 { line-height: 1.35; }
+
+.scrolling-text,
+.scrolling-text-italic,
+.scrolling-text-eng,
+.scrolling-text-italic-eng {
+  line-height: calc(var(--base-font-size) * var(--base-line-height));
+}
+
+/* Hide dropdown content - they're just data containers for sidebars */
+.dropdown-content {
+    display: none !important;
+}
+
+/* Language visibility - Default is English */
+.h1, .h2, .h3, .h4, .scrolling-text, .scrolling-text-italic {
+    display: none;
+}
+
+/* Nav and controls should be visible in both languages */
+nav,
+#play-pause-btn,
+.ui-slider {
+    display: flex !important;
+}
+
+/* Hide German content when in English mode (but not in dropdowns) */
+body.english-mode .h1, 
+body.english-mode .h2, 
+body.english-mode .h3, 
+body.english-mode .h4, 
+body.english-mode .scrolling-text, 
+body.english-mode .scrolling-text-italic,
+body.english-mode .glossar,
+body.english-mode .sources {
+    display: none;
+}
+
+/* Show English content when in English mode */
+body.english-mode .h1-eng, 
+body.english-mode .h2-eng, 
+body.english-mode .h3-eng, 
+body.english-mode .h4-eng, 
+body.english-mode .scrolling-text-eng, 
+body.english-mode .scrolling-text-italic-eng,
+body.english-mode .glossar-eng,
+body.english-mode .sources-eng {
+    display: block;
+}
+
+/* Hide English content when in German mode */
+body.german-mode .h1-eng, 
+body.german-mode .h2-eng, 
+body.german-mode .h3-eng, 
+body.german-mode .h4-eng, 
+body.german-mode .scrolling-text-eng, 
+body.german-mode .scrolling-text-italic-eng,
+body.german-mode .glossar-eng,
+body.german-mode .sources-eng {
+    display: none;
+}
+
+/* Show German content when in German mode */
+body.german-mode .h1, 
+body.german-mode .h2, 
+body.german-mode .h3, 
+body.german-mode .h4, 
+body.german-mode .scrolling-text, 
+body.german-mode .scrolling-text-italic,
+body.german-mode .glossar,
+body.german-mode .sources {
+    display: block;
+}
+
+/* ---------------- draggable img ---------------- */
+
+.draggable {
+    position: absolute;
+    cursor: grab;
+    z-index: 10;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    border-radius: 2px;
+}
+
+.draggable.active,
+  .draggable:hover {
+    border-color: var(--green);
+}
+
+.draggable img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 0%;
+    display: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.draggable.active .resize-handle,
+  .draggable:hover .resize-handle {
+    display: block;
+}
+
+.handle-nw { top: -5px; left: -5px; cursor: nwse-resize; }
+
+.handle-ne { top: -5px; right: -5px; cursor: nesw-resize; }
+
+.handle-sw { bottom: -5px; left: -5px; cursor: nesw-resize; }
+
+.handle-se { bottom: -5px; right: -5px; cursor: nwse-resize; }
+
+/* Image caption */
+.draggable .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--black);
+    padding: 5px 10px;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--green);
+    text-align: center;
+    pointer-events: none;
+}
+
+/* ---------------- draggable images ---------------- */
+
+.image-MH {
+  width: 300px;
+  height: 370px;
+  top: 4000px;
+  left: 600px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-apollo-02 {
+  width: 250px;
+  height: 250px;
+  top: 4200px;
+  left: 700px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-apollo-04 {
+  width: 300px;
+  height: 300px;
+  top: 4300px;
+  left: 600px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-jscode {
+  width: 400px;
+  height: 470px;
+  top: 1800px;
+  left: 480px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-punchcard {
+  width: 400px;
+  height: 200px;
+  top: 4000px;
+  left: 200px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-eniac {
+  width: 400px;
+  height: 300px;
+  top: 4400px;
+  left: 300px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-sketch-01 {
+  width: 400px;
+  height: 300px;
+  top: 4600px;
+  left: 200px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-sketch-02 {
+  width: 250px;
+  height: 400px;
+  top: 4600px;
+  left: 200px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-RS {
+  width: 300px;
+  height: 200px;
+  top: 5100px;
+  left: 600px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-xerox {
+  width: 400px;
+  height: 300px;
+  top: 5200px;
+  left: 400px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-github-01 {
+  width: 400px;
+  height: 300px;
+  top: 8200px;
+  left: 500px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-github-02 {
+  width: 450px;
+  height: 300px;
+  top: 8300px;
+  left: 600px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+.image-linux {
+  width: 250px;
+  height: 300px;
+  top: 7800px;
+  left: 300px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+}
+
+
+/* ---------------- horizontal ui slider ---------------- */
+
+.ui-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 20px;
+  user-select: none;
+  font-family: "InterDisplay";
+  color: var(--black);
+  min-width: 120px;
+}
+
+/* value (oben) */
+.slider-value {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-align: left;
+}
+
+/* label (unten) */
+.slider-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+  font-family: 'IBMPlexMono', monospace;
+}
+
+/* range */
+.ui-slider input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 2px;
+  background: var(--grey);
+  outline: none;
+  cursor: pointer;
+}
+
+/* webkit thumb */
+.ui-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2px;
+  height: 20px;
+  background: var(--black);
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ui-slider input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/* firefox thumb */
+.ui-slider input[type="range"]::-moz-range-thumb {
+  width: 2px;
+  height: 20px;
+  background: var(--black);
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+}
+
+
+#play-pause-btn {
+    margin-right: 20px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--white);
+    background-color: var(--black);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'IBMPlexMono', monospace;
+    font-style: normal;
+    font-weight: regular;
+    flex-shrink: 0;
+}
+
+#play-pause-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--green);
+}
+
+#glossar-btn {
+    padding: 30px 20px 20px 10px;
+    background: none;
+    border: none;
+    color: var(--black);
+    font-size: var(--buttons);
+    cursor: pointer;
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-weight: 400;
+    user-select: none;
+}
+
+#sources-btn,
+#download-btn {
+    padding: 0px 10px 0px 10px;
+    line-height: 0rem;
+    background-color: var(--black);
+    color: var(--green);
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    font-weight: regular;
+    user-select: none;
+    transition: transform 0.2s ease;
+    font-family: 'IBMPlexMono', monospace;
+    border-radius: 6px;
+}
+
+/* code editor numbers */
+
+.line-numbers {
+    position: fixed;
+    top: 130px;
+    left: 0;
+    width: 60px;
+    height: calc(100vh - 130px);
+    background: var(--white);
+    border-right: 1px solid var(--black);
+    font-family: "IBMPlexMono", monospace;
+    font-size: var(--base-font-size);  /* Gleiche Schriftgröße wie im reading-area */
+    line-height: var(--base-line-height); /* Gleiche Zeilenhöhe wie im reading-area */
+    display: block;
+    padding: 15px 0 5px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    text-align: right;
+    transition: transform 0.25s ease;
+    pointer-events: auto;
+}
+
+
+/* Scrollbar sichtbar & minimal */
+.line-numbers::-webkit-scrollbar {
+    width: 4px;
+}
+
+.line-numbers::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+}
+
+.line-number {
+    display: block;
+    text-align: right;
+    padding-right: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    user-select: none;
+}
+
+.line-number:hover {
+    opacity: 1;
+    color: var(--green);
+}
+
+
+.line-numbers span {
+    opacity: 0.15;
+}
+
+::selection { 
+    background-color: var(--black);
+    color: var(--white);
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+}
+
+/* Platz für Nummern schaffen */
+#reading-area {
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height); /* Zeilenhöhe synchronisieren */
+    padding-left: 60px;  /* Platz für Zeilennummern */
+    max-width: calc(var(--base-font-size) * 35);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* einzelne Nummern */
+.line-numbers span {
+    display: block;
+    opacity: 0.3;
+    padding-right: 10px;
+    text-align: right;
+}
+
+
+.scrolling-text,
+.scrolling-text-italic {
+  font-size: 1em;
+}
+
+
+.h1, .h1-eng {
+    max-width: 750px;
+    padding: 100px 0px 0px 80px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--black);
+    display: block;
+}
+
+.h2, .h2-eng {
+    max-width: 750px !important;
+    padding: 0px 0px 0px 20px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    color: var(--black);
+    white-space: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--green);
+    text-underline-offset: 8px;
+}
+
+.h3, .h3-eng {
+    max-width: 750px !important;
+    padding: 0px 0px 0px 50px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1.3rem;
+    color: var(--black);
+    white-space: normal;
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--green);
+    text-underline-offset: 6px;
+}
+
+.h3 p,
+.h3-eng p {
+    position: relative;
+    width: fit-content;
+}
+
+.h4 {
+    max-width: 750px;
+    padding: 0px 0px 0px 80px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--black);
+    white-space: normal;
+    position: relative;
+}
+
+.h4 p {
+    position: relative;
+    width: fit-content;
+}
+
+/* Active section - green highlight when scrolled to */
+#reading-area .h2.active-section,
+#reading-area .h3.active-section {
+    color: var(--green);
+}
+
+.h2.active-section p,
+.h3.active-section p {
+    color: var(--green);
+}
+
+.scrolling-text, .scrolling-text-eng {
+    max-width: 750px;
+    padding: 0px 0px 40px 20px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-style: normal;
+    font-size: var(--scrolling-text);
+    line-height: 1.5rem;
+    color: var(--black);
+    white-space: normal;
+}
+
+.scrolling-text-italic, .scrolling-text-italic-eng {
+    max-width: 750px;
+    padding: 0px 0px 0px 20px;
+    align-items: left;
+    font-family: "InterDisplay";
+    font-style: italic;
+    font-size: var(--scrolling-text);
+    line-height: 1.4rem;
+    color: var(--black);
+    white-space: normal;
+}
+
+/* Glossary styles - hidden in main content, only shown in sidebar */
+.glossar,
+.glossar-eng {
+    display: none;
+}
+
+/* Sources styles */
+#sources-dropdown p {
+    padding: 8px 20px;
+    font-family: "InterDisplay";
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--black);
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#sources-dropdown p:last-child {
+    border-bottom: none;
+}
+
+#sources-dropdown p:only-child,
+#sources-dropdown p:first-child {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Source item in sidebar */
+.source-item {
+    padding: 12px 20px;
+    font-family: "InterDisplay";
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--black);
+    border-bottom: 1px solid var(--grey);
+}
+
+.source-item:last-child {
+    border-bottom: none;
+}
+
+/* Glossary sidebar items */
+.glossar-item {
+    padding: 15px 20px;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--white);
+    border-bottom: 1px solid var(--grey);
+}
+
+.glossar-item:last-child {
+    border-bottom: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container-landing-page {
+        max-width: 90%;
+    }
+
+    .container-inhaltserzeichnis {
+        max-width: 90%;
+    }
+
+    .h1, .h1-eng {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1.1;
+        padding-left: 40px;
+    }
+
+    .h2, .h2-eng {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        padding-left: 10px !important;
+    }
+
+    .h3, .h3-eng {
+        font-size: 0.9rem !important;
+        line-height: 1.4rem !important;
+        padding-left: 10px !important;
+    }
+
+    .h4 {
+        font-size: 0.8rem !important;
+        line-height: 0.6rem !important;
+        padding-left: 20px !important;
+    }
+
+    .scrolling-text, .scrolling-text-eng {
+        font-size: 0.9rem !important;
+        line-height: 1.5rem !important;
+        padding-left: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-landing-page {
+        max-width: 95%;
+    }
+
+    .container-inhaltserzeichnis {
+        max-width: 95%;
+    }
+
+    .h1, .h1-eng {
+        font-size: 2rem !important;
+        font-weight: 900 !important;
+        line-height: 1.1 !important;
+        padding-left: 20px !important;
+    }
+
+    .h2, .h2-eng {
+        font-size: 1rem !important;
+        line-height: 1.3rem !important;
+        padding-left: 5px !important;
+    }
+
+    .h3, .h3-eng {
+        font-size: 0.8rem !important;
+        line-height: 1.2rem !important;
+        padding-left: 5px !important;
+    }
+
+    .h4 {
+        font-size: 0.7rem !important;
+        line-height: 0.5rem !important;
+        padding-left: 10px !important;
+    }
+
+    .scrolling-text {
+        font-size: 0.8rem !important;
+        line-height: 1.3rem !important;
+        padding-left: 5px !important;
+    }
+    
+    /* Responsive nav buttons */
+    .nav-buttons {
+        left: 10px;
+        top: 10px;
+        gap: 5px;
+    }
+    
+    #index-btn,
+    #glossary-btn,
+    #sources-btn,
+    #download-btn {
+        padding: 1px 8px;
+        font-size: 10px;
+    }
+    
+    #lang-btn {
+        right: 10px;
+        top: 12px;
+        font-size: 12px;
+    }
+    
+    .site-title {
+        font-size: 0.7rem !important;
+        top: 50px !important;
+        padding-left: 10px !important;
+    }
+}
+
+/* Popup tip for headphones message */
+.popup-tip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--black);
+    padding: 10px 15px;
+    border-radius: 15px;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: grab;
+}
+
+.popup-tip p {
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--green);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: var(--green);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.popup-close:hover {
+    color: var(--white);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Mobile - black background with message */
+@media (max-width: 600px) {
+    body {
+        background-color: var(--black) !important;
+    }
+    
+    body > *:not(.mobile-warning) {
+        display: none !important;
+    }
+    
+    .mobile-warning {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--black);
+        justify-content: flex-start;
+        align-items: flex-start;
+        z-index: 9999;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    .mobile-warning p {
+        font-family: 'IBMPlexMono', monospace;
+        font-size: 2.5vw;
+        color: var(--green);
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        line-height: 1.4;
+        margin: 0;
+        margin-right: 5px;
+    }
+}

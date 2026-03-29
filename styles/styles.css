@@ -445,6 +445,8 @@ nav {
 /* Glossary reference numbers in text */
 .glossary-ref,
 .glossary-ref-eng {
+    display: inline !important;
+    white-space: nowrap;
     color: var(--green);
     font-family: 'IBMPlexMono', monospace;
     cursor: pointer;
@@ -525,6 +527,32 @@ html.sidebar-open {
     background-color: var(--green);
 }
 
+/* Document title entry at the top of the index sidebar */
+#index-sidebar .h1-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 16px 14px 16px;
+    color: var(--white);
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    margin-bottom: 6px;
+    transition: background-color 0.2s;
+    line-height: 1.5;
+}
+
+#index-sidebar .h1-sidebar p {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#index-sidebar .h1-sidebar:active {
+    background-color: var(--green);
+}
+
 /* Overlay when sidebar is open */
 #sidebar-overlay {
     position: fixed;
@@ -572,7 +600,7 @@ html.sidebar-open {
 #reading-area .h3-eng,
 #reading-area .h4 {
   font-size: var(--base-font-size);
-  font-weight: 400;
+  font-weight: var(--font-weight, 400);
 }
 
 #reading-area .h1,
@@ -584,9 +612,10 @@ html.sidebar-open {
 #reading-area {
   --base-font-size: 16px;
   --base-line-height: 1.6;
+  --font-weight: 400;
 
   font-size: var(--base-font-size);
-  line-height: calc(var(--base-font-size) * var(--base-line-height));
+  line-height: var(--base-line-height);
 }
 
 .h1, .h1-eng { 
@@ -601,7 +630,7 @@ html.sidebar-open {
 .scrolling-text-italic,
 .scrolling-text-eng,
 .scrolling-text-italic-eng {
-  line-height: calc(var(--base-font-size) * var(--base-line-height));
+  line-height: var(--base-line-height);
 }
 
 /* Hide dropdown content - they're just data containers for sidebars */
@@ -921,7 +950,7 @@ body.german-mode .sources {
     margin-right: 20px;
     width: 36px;
     height: 36px;
-    padding: 0;
+    padding: 1px 0 0 2px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -934,7 +963,7 @@ body.german-mode .sources {
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
-    font-family: 'InterDisplay', monospace;
+    font-family: 'IBMPlexMono', monospace;
     font-style: normal;
     font-weight: regular;
     flex-shrink: 0;
@@ -1149,7 +1178,7 @@ body.german-mode .sources {
     font-family: "InterDisplay";
     font-style: normal;
     font-size: var(--scrolling-text);
-    line-height: 1.5rem;
+    line-height: var(--base-line-height);
     color: var(--black);
     white-space: normal;
 }
@@ -1161,7 +1190,7 @@ body.german-mode .sources {
     font-family: "InterDisplay";
     font-style: italic;
     font-size: var(--scrolling-text);
-    line-height: 1.4rem;
+    line-height: var(--base-line-height);
     color: var(--black);
     white-space: normal;
 }
@@ -1273,10 +1302,10 @@ body.german-mode .sources {
     }
 
     .h1, .h1-eng {
-        font-size: 2rem !important;
-        font-weight: 900 !important;
-        line-height: 1.1 !important;
-        padding-left: 20px !important;
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 1.1;
+        padding-left: 20px;
     }
 
     .h2, .h2-eng {
@@ -1377,41 +1406,297 @@ body.german-mode .sources {
     100% { opacity: 0; }
 }
 
-/* Mobile - black background with message */
+/* Mobile - responsive layout for small screens */
 @media (max-width: 600px) {
-    body {
-        background-color: var(--black) !important;
-    }
-    
-    body > *:not(.mobile-warning) {
+    /* Hide mobile warning - show actual content */
+    .mobile-warning {
         display: none !important;
     }
     
-    .mobile-warning {
-        display: flex !important;
+    /* Adjust body and html for mobile */
+    html, body {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Navigation - stack vertically on mobile */
+    nav {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background-color: var(--black);
+        height: auto;
+        min-height: 60px;
+        background: linear-gradient(
+            to bottom,
+            var(--white) 0%,
+            var(--white) 80%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        z-index: 9999;
-        padding: 20px;
+        padding: 10px;
         box-sizing: border-box;
     }
     
-    .mobile-warning p {
-        font-family: 'IBMPlexMono', monospace;
-        font-size: 2.5vw;
-        color: var(--green);
-        text-align: left;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+    /* Nav buttons - wrap and smaller */
+    .nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    
+    /* Smaller nav buttons on mobile */
+    #index-btn,
+    #glossary-btn,
+    #sources-btn,
+    #download-btn,
+    #lang-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+        line-height: 1.2;
+    }
+    
+    /* Audio controls - smaller and inline */
+    #play-pause-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+    
+    /* Hide sliders on mobile - completely remove from layout */
+    .ui-slider {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide popup tip on mobile */
+    .popup-tip {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Line numbers - smaller on mobile */
+    .line-numbers {
+        display: block !important;
+        width: 30px;
+        font-size: 10px;
+        padding: 15px 0 5px 0;
+    }
+    
+    .line-number {
+        padding-right: 5px;
+    }
+    
+    /* Adjust nav gradient */
+    .nav-gradient {
+        display: none;
+    }
+    
+    /* Main content area */
+    main {
+        margin-top: 120px;
+        padding: 0 10px;
+    }
+    
+    .content-wrapper {
+        padding: 0;
+        transform: none !important;
+    }
+    
+    /* Reading area - full width on mobile */
+    #reading-area {
+        padding-left: 30px;
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Headings - adjusted for mobile */
+    .h1, .h1-eng {
+        font-size: 1.8rem;
+        font-weight: 900;
+        line-height: 1.2;
+        padding: 60px 10px 20px 30px;
+        max-width: 100%;
+    }
+    
+    .h2, .h2-eng {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 15px 10px 10px 10px;
+        max-width: 100% !important;
+    }
+    
+    .h3, .h3-eng {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding: 10px 10px 10px 15px;
+        max-width: 100% !important;
+    }
+    
+    .h4 {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        padding: 8px 10px 8px 20px;
+        max-width: 100%;
+    }
+    
+    /* Scrolling text - adjusted for mobile */
+    .scrolling-text, .scrolling-text-eng {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 0 10px 25px 10px;
+        max-width: 100%;
+    }
+    
+    .scrolling-text-italic, .scrolling-text-italic-eng {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        padding: 0 10px 15px 10px;
+        max-width: 100%;
+    }
+    
+    /* Draggable images - adjust for mobile */
+    .draggable {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 20px 0;
+        cursor: default;
+    }
+    
+    .draggable img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Hide resize handles on mobile */
+    .resize-handle {
+        display: none !important;
+    }
+    
+    /* Image caption - full width on mobile */
+    .draggable .image-caption {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 5px;
+    }
+    
+    /* Specific image adjustments */
+    .image-MH,
+    .image-apollo-02,
+    .image-apollo-04,
+    .image-jscode,
+    .image-punchcard,
+    .image-eniac,
+    .image-sketch-01,
+    .image-sketch-02,
+    .image-RS,
+    .image-xerox,
+    .image-github-01,
+    .image-github-02,
+    .image-linux {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 15px 0;
+    }
+    
+    /* Sidebar adjustments for mobile */
+    #index-sidebar,
+    #glossary-sidebar,
+    #sources-sidebar {
+        width: 85%;
+        max-width: 300px;
+    }
+    
+    /* Increase line height for sidebar index text on mobile */
+    #index-sidebar .h1-sidebar,
+    #index-sidebar .h2,
+    #index-sidebar .h3,
+    #glossary-sidebar .h2,
+    #glossary-sidebar .h3,
+    #sources-sidebar .h2,
+    #sources-sidebar .h3 {
+        line-height: 1.7;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    /* Popup tip - adjust for mobile */
+    .popup-tip {
+        top: auto;
+        bottom: 20px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        width: auto;
+        padding: 8px 12px;
+    }
+    
+    .popup-tip p {
+        font-size: 10px;
         white-space: normal;
-        line-height: 1.4;
-        margin: 0;
-        margin-right: 5px;
+    }
+    
+    /* Active section highlighting */
+    #reading-area .h2.active-section,
+    #reading-area .h3.active-section {
+        color: var(--green);
+    }
+    
+    /* Ensure content is visible */
+    body > *:not(.mobile-warning) {
+        display: block !important;
+    }
+    
+    nav,
+    #play-pause-btn,
+    .ui-slider {
+        display: flex !important;
+    }
+    
+    /* Language visibility */
+    .h1, .h2, .h3, .h4, .scrolling-text, .scrolling-text-italic {
+        display: none;
+    }
+    
+    body.english-mode .h1-eng, 
+    body.english-mode .h2-eng, 
+    body.english-mode .h3-eng, 
+    body.english-mode .h4-eng, 
+    body.english-mode .scrolling-text-eng, 
+    body.english-mode .scrolling-text-italic-eng {
+        display: block;
+    }
+    
+    body.german-mode .h1, 
+    body.german-mode .h2, 
+    body.german-mode .h3, 
+    body.german-mode .h4, 
+    body.german-mode .scrolling-text, 
+    body.german-mode .scrolling-text-italic {
+        display: block;
     }
 }

@@ -716,11 +716,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollRAF = null;
     let lastTime = null;
 
-
-    // ================================
-    // AUTO SCROLL
-    // ================================
-
     function autoScroll(timestamp) {
         if (!isScrolling) return;
 
